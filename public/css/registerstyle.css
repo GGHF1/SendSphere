@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+input[type="email"]:focus, 
+input[type="date"]:focus, 
+select:focus {
+    border-color: #56CCF2;
+    outline: none;
+}
+
+.invalid-feedback {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+}
+
+button {
+    background: linear-gradient(45deg, #A16DF2, #56CCF2); /* Gradient like the welcome page */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #9160DC, #4DBBD1); /* Darker hover effect */
+}
+
+#step2 {
+    display: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.row .group {
+    width: 48%;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .row .group {
+        width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+}
