@@ -56,13 +56,22 @@
                 </div>
                 <div class="row">
                     <div class="group">
-                        <input type="text" name="country" id="country" placeholder="Country" required value="{{ old('country') }}" class="@error('country') is-invalid @enderror">
-                        @error('country')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <select name="country_id" id="country" required>
+                            <option value="">Select Country</option>
+                            @foreach($countries as $country)
+                                <option value="{{ $country->country_id }}">{{ $country->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="group">
-                        <input type="text" name="city" id="city" placeholder="City" value="{{ old('city') }}">
+                        <select name="city_id" id="city" required>
+                            <option value="">Select City</option>
+                            @foreach($cities as $city)
+                                <option value="{{ $city->city_id }}" data-country-id="{{ $city->country_id }}">
+                                    {{ $city->name }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -111,6 +120,8 @@
         </form>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/regcheck.js') }}"></script>
+    <script src="{{ asset('js/cityfilter.js') }}"></script>
 </body>
 </html>

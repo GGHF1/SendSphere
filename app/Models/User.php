@@ -3,21 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\CustomVerifyEmail;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
     protected $table = 'users';
     protected $primaryKey = 'user_id';
 
     protected $fillable = [
         'fname',
         'lname',
-        'country',
-        'city',
+        'country_id',
+        'city_id',
         'address',
         'zip',
         'phone',
@@ -27,4 +28,26 @@ class User extends Authenticatable
         'DOB',
         'gender',
     ];
+
+    protected $dates = ['email_verified_at'];
+
+    /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new CustomVerifyEmail());
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Countries::class, 'country_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(Cities::class, 'city_id'); 
+    }
 }

@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use App\Models\Countries;
+use App\Models\Cities;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
     public function RegForm()
     {
-        return view('register');
+        $countries = Countries::all();
+        $cities = Cities::all();
+        return view('register', compact('countries', 'cities'));
     }
 
     public function register(Request $request)
@@ -19,13 +25,13 @@ class UserController extends Controller
         $request->validate([
             'fname' => ['required', 'regex:/^[A-Za-z]+$/'], 
             'lname' => ['required', 'regex:/^[A-Za-z]+$/'], 
-            'country' => 'required',
-            'city' => 'required',
+            'country_id' => 'required|exists:countries,country_id', 
+            'city_id' => 'required|exists:cities,city_id',   
             'address' => 'required',
             'zip' => 'required',
-            'phone' => ['required', 'regex:/^\d+$/'], 
-            'email' => ['required', 'email'], 
-            'username' => ['required', 'regex:/^[a-zA-Z0-9]+$/', 'min:4', 'max:20'],
+            'phone' => ['required', 'regex:/^\d+$/', 'unique:users,phone'], 
+            'email' => ['required', 'email', 'unique:users,email'], 
+            'username' => ['required', 'regex:/^[a-zA-Z0-9]+$/', 'min:4', 'max:20', 'unique:users,username'],
             'password' => [
                 'required', 
                 'min:8', 
@@ -43,11 +49,11 @@ class UserController extends Controller
             'DOB.before' => 'Date of birth cannot be in the future.'
         ]);
 
-        User::create([
+        $user = User::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
-            'country' => $request->country,
-            'city' => $request->city,
+            'country_id' => $request->country_id,
+            'city_id' => $request->city_id,
             'address' => $request->address,
             'zip' => $request->zip,
             'phone' => $request->phone,
@@ -58,7 +64,9 @@ class UserController extends Controller
             'gender' => $request->gender,
         ]);
 
-        return redirect('/login')->with('success');
+        event(new Registered($user));
+        Auth::login($user);
+        return redirect('/email/verify')->with('success', 'Please verify your email address.');
     }
 
     public function LogForm()
@@ -66,14 +74,22 @@ class UserController extends Controller
         return view('login');
     }
     
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $credentials = $request->only('username', 'password');
+    
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/main');
+            if (Auth::user()->email_verified_at) {
+                return redirect()->intended('/main');
+            } else {
+                Auth::logout();
+                return redirect('/login')->with('error', 'Please verify your email address first.');
+            }
         }
-
-        return redirect('/login')->with('error');
+    
+        return redirect('/login')->with('error', 'Invalid credentials.');
     }
+    
 
     public function logout(){
         Auth::logout();

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id('user_id');
             $table->string('fname');
             $table->string('lname');
-            $table->string('country');
-            $table->string('city');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('city_id'); 
             $table->string('address');
             $table->string('zip');
             $table->string('phone');
@@ -25,7 +25,11 @@ return new class extends Migration
             $table->string('password');
             $table->date('DOB');
             $table->string('gender');
+            $table->timestamp('email_verified_at')->nullable(); 
             $table->timestamps();
+
+            $table->foreign('country_id')->references('country_id')->on('countries')->onDelete('cascade');
+            $table->foreign('city_id')->references('city_id')->on('cities')->onDelete('cascade');
         });
     }
 
@@ -34,6 +38,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['country_id']); 
+            $table->dropForeign(['city_id']);    
+        });
+
         Schema::dropIfExists('users');
     }
 };
