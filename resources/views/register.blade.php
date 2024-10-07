@@ -66,11 +66,6 @@
                     <div class="group">
                         <select name="city_id" id="city" required>
                             <option value="">Select City</option>
-                            @foreach($cities as $city)
-                                <option value="{{ $city->city_id }}" data-country-id="{{ $city->country_id }}">
-                                    {{ $city->name }}
-                                </option>
-                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -121,6 +116,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('js/regcheck.js') }}"></script>
     <script src="{{ asset('js/cityfilter.js') }}"></script>
 </body>

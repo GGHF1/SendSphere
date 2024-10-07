@@ -21,3 +21,7 @@ class DatabaseSeeder extends Seeder
         }
     }
 }
+//run this command to populate the database with the seed data:
+//php artisan migrate --seed 
+
+//php artisan migrate:refresh --seed

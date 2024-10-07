@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to SendSphere</title>
+    <link rel="icon" href="{{ asset('images/logo.png') }}" >
     <link rel="stylesheet" href="{{ asset('css/welcomestyle.css') }}">
 </head>
 <body>
