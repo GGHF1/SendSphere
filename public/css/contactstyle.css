@@ -1,17 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -36,13 +30,20 @@ form {
     align-items: center;
 }
 
-.group {
+.form-group {
     width: 100%;
     margin-bottom: 20px;
 }
 
-input[type="text"], 
-input[type="password"] {
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
     width: 100%;
     padding: 12px 15px;
     margin-bottom: 10px;
@@ -52,37 +53,15 @@ input[type="password"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, 
-input[type="password"]:focus {
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
     border-color: #56CCF2;
     outline: none;
 }
 
-.pass-container {
-    position: relative;
-    width: 100%; 
-}
-
-.pass-container input[type="password"] {
-    padding-right: 40px; 
-}
-
-.eye-icon {
-    position: absolute;
-    right: 10px; 
-    top: 40%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 20px; 
-    height: 20px;
-}
-
-.eye-icon:hover {
-    opacity: 0.8;
-}
-
 button {
-    background: linear-gradient(45deg, #A16DF2, #56CCF2); /* Gradient like the welcome page */
+    background: linear-gradient(45deg, #A16DF2, #56CCF2);
     color: white;
     padding: 12px 20px;
     border: none;
@@ -95,20 +74,5 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(45deg, #9160DC, #4DBBD1); /* Darker hover effect */
-}
-
-@media (max-width: 500px) {
-    .container {
-        padding: 20px;
-        width: 90%;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    button {
-        font-size: 16px;
-    }
+    background: linear-gradient(45deg, #9160DC, #4DBBD1);
 }

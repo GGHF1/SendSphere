@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to SendSphere</title>
-    <link rel="icon" href="{{ asset('images/logo.png') }}" >
+    <link rel="icon" href="{{ asset('images/icons.png') }}" >
     <link rel="stylesheet" href="{{ asset('css/welcomestyle.css') }}">
 </head>
-<body>
+<body> 
 
     <div class="header">
         <img src="{{ asset('images/logo.png') }}" alt="SendSphere Logo" class="logo">
         <div class="nav-buttons">
-            <button type="submit" id="cont-button">Contact</button>
+            <form action="{{ route('contact.form') }}" method="get">
+            @csrf
+                <button type="submit" id="cont-button">Contact</button>
+            </form>
             <form action="{{ route('login') }}" method="get">
                 <button type="submit" id="log-button">Log in</button>
             </form>
@@ -32,8 +35,6 @@
             </p>
         </div>
     </div>
-
-    <div class="ad-space"></div>
-
+    <script src="{{ asset('js/bannerfade.js') }}"></script>
 </body>
 </html>

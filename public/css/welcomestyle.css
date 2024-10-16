@@ -49,6 +49,9 @@ button:hover {
 }
 
 .img-banner {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
     position: relative;
     width: 100%;
     height: 300px;
@@ -61,6 +64,11 @@ button:hover {
     color: white;
     text-align: center;
     padding: 20px;
+}
+
+.img-banner.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .img-banner img {
@@ -85,7 +93,13 @@ button:hover {
     z-index: 1;
 }
 
-.ad-space {
-    height: 200px;
-    background-color: white;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -7,9 +7,7 @@ use App\Http\Controllers\CityController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainController::class, 'welcome'])->name('welcome');
 
 Route::get('/register', [UserController::class, 'RegForm'])->name('register');
 Route::post('/register', [UserController::class, 'register'])->name('register');
@@ -17,7 +15,7 @@ Route::post('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', [UserController::class, 'LogForm'])->name('login');
 Route::post('/login', [UserController::class, 'login'])->name('login');
 
-Route::get('/main', [MainController::class, 'main'])->middleware('auth');
+Route::get('/main', [MainController::class, 'main'])->middleware('auth')->name('main');
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
@@ -37,3 +35,11 @@ Route::post('/email/resend', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
 
 Route::get('/cities/{country_id}', [CityController::class, 'getCities']);
+
+Route::get('/contact', [MainController::class, 'contact'])->name('contact.form');
+
+Route::post('/contact/send', [MainController::class, 'send'])->name('contact.send');
+
+Route::get('/contact/submitted', function () {
+    return view('contactsub');
+})->name('contact.submitted');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('images/logo.png') }}" >
+    <link rel="icon" href="{{ asset('images/icons.png') }}" >
     <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
     <title>Login</title>
 </head>
@@ -14,11 +14,14 @@
         @csrf
             <div class="group">
                 <input type="text" name="username" id="username" placeholder="Username">
-                <input type="password" name="password" id="password" placeholder="Password">
+                <div class="pass-container">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <img id="togglePassword" class="eye-icon" src="{{ asset('images/view.png') }}">
+                </div>
             </div>
             <button type="submit" id="log-button">Log in</button>
         </form>
     </div>
-    <script src="{{ asset('js/logcheck.js') }}"></script>
+    <script src="{{ asset('js/showpass.js') }}"></script>
 </body>
 </html>

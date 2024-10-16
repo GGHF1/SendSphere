@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ asset('images/icons.png') }}" >
     <link rel="stylesheet" href="{{ asset('css/registerstyle.css') }}">
     <title>Registration</title>
 </head>
@@ -100,7 +101,7 @@
                     </div>
                     <div class="group">
                         <select id="gender" name="gender" required class="@error('gender') is-invalid @enderror">
-                            <option value="">Select Gender</option>
+                            <option value="">Gender</option>
                             <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
                             <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
                             <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
