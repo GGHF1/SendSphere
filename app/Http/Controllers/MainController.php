@@ -25,17 +25,18 @@ class MainController extends Controller
     public function send(Request $request)
     {
         $request->validate([
+            'category' => 'required|string',
             'email' => 'required|email',
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
             'message' => 'required|string',
         ]);
 
-        $data = $request->only('email', 'fname', 'lname', 'message');
+        $data = $request->only('category', 'email', 'fname', 'lname', 'message');
 
         Mail::send([], [], function ($message) use ($data) {
             $message->to('spheresend@gmail.com')
-                ->subject('Contact Form Submission')
+                ->subject('Subject: ' . $data['category'])
                 ->text('Email: ' . $data['email'] . "\n" .
                           'First Name: ' . $data['fname'] . "\n" .
                           'Last Name: ' . $data['lname'] . "\n" .

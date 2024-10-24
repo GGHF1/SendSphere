@@ -86,6 +86,10 @@ button:hover {
     background: linear-gradient(45deg, #9160DC, #4DBBD1); /* Darker hover effect */
 }
 
+button:disabled {
+    cursor: not-allowed;
+}
+
 #step2 {
     display: none;
 }

@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const emailInput = document.getElementById('email');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('password_confirmation');
 
     const emailError = document.getElementById('emailError');
     const usernameError = document.getElementById('usernameError');
     const passwordError = document.getElementById('passwordError');
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
 
     const usernamePattern = /^[a-zA-Z0-9]+$/; 
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -18,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     emailInput.addEventListener('input', validateEmail);
     usernameInput.addEventListener('input', validateUsername);
     passwordInput.addEventListener('input', validatePassword);
+    confirmPasswordInput.addEventListener('input', validateConfirmPassword);
 
     function validateEmail() {
         if (!emailPattern.test(emailInput.value)) {
@@ -55,12 +58,24 @@ document.addEventListener("DOMContentLoaded", function() {
         checkFormValidity();
     }
 
+    function validateConfirmPassword() {
+        if (confirmPasswordInput.value !== passwordInput.value) {
+            confirmPasswordInput.classList.add('is-invalid');
+            confirmPasswordError.textContent = "Passwords do not match.";
+        } else {
+            confirmPasswordInput.classList.remove('is-invalid');
+            confirmPasswordError.textContent = "";
+        }
+        checkFormValidity();
+    }
+
     function checkFormValidity() {
         const isEmailValid = !emailInput.classList.contains('is-invalid') && emailInput.value !== "";
         const isUsernameValid = !usernameInput.classList.contains('is-invalid') && usernameInput.value !== "";
         const isPasswordValid = !passwordInput.classList.contains('is-invalid') && passwordInput.value !== "";
+        const isConfirmPasswordValid =! confirmPasswordInput.classList.contains('is-invalid') && confirmPasswordInput.value !== "";
 
-        nextButton.disabled = !(isEmailValid && isUsernameValid && isPasswordValid);
+        nextButton.disabled = !(isEmailValid && isUsernameValid && isPasswordValid && isConfirmPasswordValid);
     }
 
     nextButton.addEventListener('click', function() {

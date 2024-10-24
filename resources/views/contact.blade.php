@@ -13,6 +13,18 @@
         <form action="{{ route('contact.send') }}" method="post">
             @csrf
             <div class="form-group">
+                <label for="category">Subject:</label>
+                <select name="category" id="category" required>
+                    <option value="">Select a Category</option>
+                    <option value="Account Issues">Account Issues</option>
+                    <option value="Payment Problems">Payment Problems</option>
+                    <option value="Technical Support">Technical Support</option>
+                    <option value="Fraud and Security">Fraud and Security</option>
+                    <option value="Disputes and Claims">Disputes and Claims</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" value="{{ Auth::check() ? Auth::user()->email : '' }}" required>
             </div>
@@ -26,7 +38,7 @@
             </div>
             <div class="form-group">
                 <label for="message">Message:</label>
-                <textarea name="message" id="message" rows="5" required></textarea>
+                <textarea name="message" id="message" rows="5" class="restricted-textarea" required></textarea>
             </div>
             <button type="submit">Ask the Question</button>
         </form> 

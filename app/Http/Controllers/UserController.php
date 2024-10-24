@@ -33,7 +33,8 @@ class UserController extends Controller
             'email' => ['required', 'email', 'unique:users,email'], 
             'username' => ['required', 'regex:/^[a-zA-Z0-9]+$/', 'min:4', 'max:20', 'unique:users,username'],
             'password' => [
-                'required', 
+                'required',
+                'confirmed', 
                 'min:8', 
                 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
             ], 

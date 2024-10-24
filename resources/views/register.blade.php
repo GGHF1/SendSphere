@@ -35,6 +35,13 @@
                     @enderror
                     <div id="passwordError" class="error-message"></div>
                 </div>
+                <div class="group">
+                    <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required class="@error('password_confirmation') is-invalid @enderror">
+                    @error('password_confirmation')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                    <div id="confirmPasswordError" class="error-message"></div>
+                </div>
                 <button type="button" id="next-button" disabled>Next</button>
             </div>
 
