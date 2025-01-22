@@ -69,7 +69,7 @@
             <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0;">
 
             <p>If you're having trouble clicking the "Verify Email Address" button, copy and paste the URL below into your web browser: {{ $url }}</p>
-            <p>© 2024 SendSphere. All rights reserved.</p>
+            <p>© 2024-2025 SendSphere. All rights reserved.</p>
         </div>
     </div>
 </body>

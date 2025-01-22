@@ -8,7 +8,12 @@
 
 @section('content')
     <div class="container">
-        <img src="{{ asset('images/logo.png') }}" alt="SendSphere Logo" class="logo">
+        <form action="{{ route('main') }}" method="get">
+            @csrf
+            <a href="{{ route('main') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="SendSphere Logo" class="logo">
+            </a>
+        </form>
         <form action="{{ route('login') }}" method="post">
             @csrf
             <div class="group">

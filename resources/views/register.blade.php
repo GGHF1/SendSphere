@@ -8,11 +8,18 @@
 
 @section('content')
     <div class="container">
-        <h1>Registration</h1>
+
+        <form action="{{ route('main') }}" method="get">
+            @csrf
+            <a href="{{ route('main') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="SendSphere Logo" class="logo">
+            </a>
+        </form>
 
         <form id="registration-form" action="{{ route('register') }}" method="post">
             @csrf
             <div id="step1">
+
                 <div class="group">
                     <input type="text" name="email" id="email" placeholder="Email" required value="{{ old('email') }}" class="@error('email') is-invalid @enderror">
                     @error('email')
@@ -20,6 +27,7 @@
                     @enderror
                     <div id="emailError" class="error-message"></div>
                 </div>
+
                 <div class="group">
                     <input type="text" name="username" id="username" placeholder="Username" required minlength="4" value="{{ old('username') }}" class="@error('username') is-invalid @enderror">
                     @error('username')
@@ -27,21 +35,30 @@
                     @enderror
                     <div id="usernameError" class="error-message"></div>
                 </div>
+
                 <div class="group">
-                    <input type="password" name="password" id="password" placeholder="Password" required class="@error('password') is-invalid @enderror">
+                    <div class="input-wrapper">                    
+                        <input type="password" name="password" id="password" placeholder="Password" required class="@error('password') is-invalid @enderror">
+                        <img id="togglePassword" class="eye-icon" src="{{ asset('images/view.png') }}">
+                    </div>
                     @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                     <div id="passwordError" class="error-message"></div>
                 </div>
+
                 <div class="group">
-                    <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required class="@error('password_confirmation') is-invalid @enderror">
+                    <div class="input-wrapper">  
+                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required class="@error('password_confirmation') is-invalid @enderror">
+                        <img id="togglePasswordConfirm" class="eye-icon" src="{{ asset('images/view.png') }}">
+                    </div>
                     @error('password_confirmation')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                     <div id="confirmPasswordError" class="error-message"></div>
                 </div>
-                <button type="button" id="next-button" disabled>Next</button>
+
+                <button type="button" id="next-button" disabled>Next Registration Step</button>
             </div>
 
             <div id="step2" style="display: none;">
@@ -126,4 +143,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('js/regcheck.js') }}"></script>
     <script src="{{ asset('js/cityfilter.js') }}"></script>
+    <script src="{{ asset('js/showpass.js') }}"></script>
 @endsection

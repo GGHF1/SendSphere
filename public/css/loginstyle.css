@@ -1,20 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    flex-direction: column;
+    background-color: #f3f4f6;
 }
 
 .container {
@@ -25,6 +11,8 @@ body {
     width: 400px;
     max-width: 100%;
     text-align: center;
+    position: relative;
+    margin: 150px auto;
 }
 
 .logo{
@@ -66,7 +54,7 @@ input[type="password"]:focus {
     width: 100%; 
 }
 
-.pass-container input[type="password"] {
+.pass-container input {
     padding-right: 40px; 
 }
 

@@ -1,18 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
+    background-color: #f3f4f6;
 }
 
 .container {
@@ -23,6 +11,13 @@ body {
     width: 500px;
     max-width: 100%;
     text-align: center;
+    margin: 150px auto;
+}
+
+.logo{
+    width: 80px;
+    height: 75px;
+    margin: 0 auto 20px;
 }
 
 h1 {
@@ -37,8 +32,11 @@ form {
 }
 
 .group {
-    width: 100%;
     margin-bottom: 20px;
+}
+
+.input-wrapper {
+    position: relative;
 }
 
 input,
@@ -63,7 +61,11 @@ input::placeholder{
     color: #000000; 
 }
 
-.invalid-feedback {
+.input-wrapper input{
+    padding-right: 50px;
+}
+
+.invalid-feedback, .error-message {
     color: red;
     font-size: 12px;
     text-align: left;
@@ -94,20 +96,18 @@ button:disabled {
     display: none;
 }
 
-.error-message {
-    color: red;
-    font-size: 12px;
-    text-align: left;
+.eye-icon {
+    position: absolute;
+    right: 20px;
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px; 
+    height: 20px;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.row .group {
-    width: 48%;
+.eye-icon:hover{
+    opacity: 0.8;
 }
 
 @media (max-width: 768px) {
