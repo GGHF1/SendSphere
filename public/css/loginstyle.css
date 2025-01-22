@@ -12,6 +12,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
 }
 
 .container {
@@ -24,10 +27,10 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 20px;
+.logo{
+    width: 80px;
+    height: 75px;
+    margin: 0 auto 20px;
 }
 
 form {
@@ -95,7 +98,70 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(45deg, #9160DC, #4DBBD1); /* Darker hover effect */
+    background: linear-gradient(45deg, #9160DC, #4DBBD1); 
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+    margin: 0 10px;
+}
+
+.signup-button {
+    background: white;
+    color: black;
+    padding: 12px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.signup-button:hover {
+    background: white;
+    color: rgb(57, 57, 255);
+    border: 1px solid rgb(57, 57, 255);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #F7F9FA;
+    border-top: 1px solid #e1e1e1;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.footer p {
+    margin: 0;
+    color: #575757;
+    font-size: 12px;
+}
+
+.footer a {
+    color: #575757;
+    text-decoration: none;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 500px) {

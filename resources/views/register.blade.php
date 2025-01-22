@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('images/icons.png') }}" >
+@extends('layouts.app')
+
+@section('title', 'Registration')
+
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/registerstyle.css') }}">
-    <title>Registration</title>
-</head>
-<body>
+@endsection
+
+@section('content')
     <div class="container">
         <h1>Registration</h1>
 
@@ -127,5 +126,4 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('js/regcheck.js') }}"></script>
     <script src="{{ asset('js/cityfilter.js') }}"></script>
-</body>
-</html>
+@endsection

@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('images/icons.png') }}" >
+@extends('layouts.app')
+
+@section('title', 'Login')
+
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
-    <title>Login</title>
-</head>
-<body>
+@endsection
+
+@section('content')
     <div class="container">
-        <h1>Login</h1>
+        <img src="{{ asset('images/logo.png') }}" alt="SendSphere Logo" class="logo">
         <form action="{{ route('login') }}" method="post">
-        @csrf
+            @csrf
             <div class="group">
                 <input type="text" name="username" id="username" placeholder="Username">
                 <div class="pass-container">
@@ -21,7 +20,13 @@
             </div>
             <button type="submit" id="log-button">Log in</button>
         </form>
+        <div class="separator">
+            <span>or</span>
+        </div>
+        <form action="{{ route('register') }}" method="get">
+            @csrf
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
     </div>
     <script src="{{ asset('js/showpass.js') }}"></script>
-</body>
-</html>
+@endsection

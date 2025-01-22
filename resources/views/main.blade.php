@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('images/icons.png') }}" >
+@extends('layouts.app')
+
+@section('title', 'Main')
+
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/mainstyle.css') }}">
-    <title>Main</title>
-</head>
-<body>
+@endsection
+
+@section('content')
     <div class="header">
         <img src="{{ asset('images/logo.png') }}" alt="SendSphere Logo" class="logo">
         <div class="nav-buttons">
@@ -17,9 +16,16 @@
             </form>
             <form method="POST" action="{{ route('logout') }}">
             @csrf
-                <button type="submit" id="logout-button">Logout</button>
+                <button type="submit" id="logout-button">Log out</button>
             </form>
-            <button type="submit" id="wallet-button">Wallet</button>
+            <form action="{{ route('wallet') }}" method="get">
+            @csrf
+                <button type="submit" id="wallet-button">Wallet</button>
+            </form>
+            <form action="{{ route('currency.converter') }}" method="get">
+            @csrf
+                <button type="submit" id="currency-button">Currency Calculator</button>
+            </form>
         </div>
     </div>
 
@@ -34,5 +40,4 @@
         </div>
     </div>
     <script src="{{ asset('js/bannerfade.js') }}"></script>
-</body>
-</html>
+@endsection

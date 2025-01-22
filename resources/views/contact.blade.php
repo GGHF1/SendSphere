@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('images/icons.png') }}" >
-    <title>Contact Us</title>
+@extends('layouts.app')
+
+@section('title', 'Contact Us')
+
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/contactstyle.css') }}">
-</head>
-<body>
+@endsection
+
+@section('content')
     <div class="container">
         <h1>Contact Us</h1>
         <form action="{{ route('contact.send') }}" method="post">
@@ -43,5 +42,4 @@
             <button type="submit">Ask the Question</button>
         </form> 
     </div>
-</body>
-</html>
+@endsection

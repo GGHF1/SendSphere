@@ -50,4 +50,19 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo(Cities::class, 'city_id'); 
     }
+
+    public function wallet(){
+        return $this->hasOne(Wallet::class, 'user_id');
+    }
+
+    public function card(){
+        return $this->hasManyThrough(Card::class, Wallet::class);
+    }
+
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            $user->wallet()->create(['balance' => 0]);
+        });
+    }
 }

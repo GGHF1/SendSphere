@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -43,3 +44,8 @@ Route::post('/contact/send', [MainController::class, 'send'])->name('contact.sen
 Route::get('/contact/submitted', function () {
     return view('contactsub');
 })->name('contact.submitted');
+
+Route::get('/wallet', [WalletController::class, 'walletInfo'])->middleware('auth')->name('wallet');
+
+Route::get('/currency-converter', [WalletController::class, 'currencyConverter'])->name('currency.converter');
+Route::post('/convert-currency', [WalletController::class, 'convertCurrency'])->name('convert.currency');

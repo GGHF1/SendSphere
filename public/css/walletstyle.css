@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+}
+
+.header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 70px;
+    margin-left: 20px;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+button {
+    background: linear-gradient(45deg, #A16DF2, #56CCF2); 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #9160DC, #4DBBD1);
+}
+
+.container {
+    display: flex;
+    margin: 40px;
+}
+
+.wallet-sidebar {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-main {
+    flex: 1;
+    margin-left: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.link-button {
+    display: block;
+    width: 100%;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.link-button:hover {
+    background-color: #e4e7eb;
+}
+
+.balance-box {
+    border: 1px solid #dcdfe6;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.balance-amount {
+    font-size: 24px;
+    color: #333;
+}
+
+.card-info {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.preferred-tag {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.currency-amount {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.transfer-button {
+    background-color: #0070ba;
+    color: white;
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.transfer-button:hover {
+    background-color: #005b9d;
+}
+
+.currency-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #dcdfe6;
+}
+
+.currency {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.add-currency, .currency-calculator {
+    color: #0070ba;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.add-currency:hover, .currency-calculator:hover {
+    text-decoration: underline;
+}
