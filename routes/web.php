@@ -32,7 +32,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::post('/email/resend', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
-    return back()->with('message', 'Verification link sent!');
+    return back()->with('resent', true);
 })->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
 
 Route::get('/cities/{country_id}', [CityController::class, 'getCities']);
@@ -49,3 +49,6 @@ Route::get('/wallet', [WalletController::class, 'walletInfo'])->middleware('auth
 
 Route::get('/currency-converter', [WalletController::class, 'currencyConverter'])->name('currency.converter');
 Route::post('/convert-currency', [WalletController::class, 'convertCurrency'])->name('convert.currency');
+
+Route::get('/link-card', [WalletController::class, 'linkCardForm'])->middleware('auth')->name('link.card');
+Route::post('/add-card', [WalletController::class, 'addCard'])->middleware('auth')->name('add.card');

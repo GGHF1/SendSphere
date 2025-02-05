@@ -8,9 +8,9 @@
 
 @section('content')
     <div class="header">
-        <form action="{{ route('main') }}" method="get">
+        <form action="{{ route('welcome') }}" method="get">
             @csrf
-            <a href="{{ route('main') }}">
+            <a href="{{ route('welcome') }}">
                 <img src="{{ asset('images/logo.png') }}" alt="SendSphere Logo" class="logo">
             </a>
         </form>

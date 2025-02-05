@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Wallet extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'wallet_id';
     protected $fillable = ['user_id', 'balance', 'currency'];
 
     protected $attributes = [
@@ -21,6 +21,6 @@ class Wallet extends Model
 
     public function cards()
     {
-        return $this->hasMany(Card::class);
+        return $this->hasMany(Card::class, 'wallet_id', 'wallet_id');
     }
 }

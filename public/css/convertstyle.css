@@ -4,10 +4,7 @@ body {
 }
 
 .header {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    height: 85px;   
     background-color: white;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -15,8 +12,10 @@ body {
 
 .logo {
     width: 70px;
-    margin-left: 20px;
+    margin: 0 auto;
+    display: block;
 }
+
 
 .container {
     max-width: 500px;
@@ -83,7 +82,7 @@ button:hover {
     padding: 0;
     cursor: pointer;
     position: absolute;
-    top: 15px;
+    top: 18px;
     left: 15px;
 }
 

@@ -32,11 +32,33 @@
 
     <div class="container">
         <div class="wallet-sidebar">
-            <button class="link-button">Link a card</button>
+            <form action="{{ route('link.card') }}" method="get">
+            @csrf
+                <button class="link-button">Link a card</button>
+            </form>
             <div class="card-info">
-                <p><strong>X smart</strong></p>
-                <p>Credit ••3884</p>
-                <span class="preferred-tag">PREFERRED</span>
+                @php
+                    // Separate preferred card from the rest
+                    $preferredCard = $cards->where('preferred', true)->first();
+                    $otherCards = $cards->where('preferred', false);
+                @endphp
+
+                {{-- Display preferred card first --}}
+                @if ($preferredCard)
+                    <div class="card-container preferred">
+                        <p>Credit ••{{ substr($preferredCard->card_number, -4) }}</p>
+                        <p>Expiry: {{ \Carbon\Carbon::parse($preferredCard->expiry_date)->format('m/y') }}</p>
+                        <span class="preferred-tag">PREFERRED</span>
+                    </div>
+                @endif
+
+                {{-- Display other cards below --}}
+                @foreach ($otherCards as $card)
+                    <div class="card-container">
+                        <p>Credit ••{{ substr($card->card_number, -4) }}</p>
+                        <p>Expiry: {{ \Carbon\Carbon::parse($card->expiry_date)->format('m/y') }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
         

@@ -1,18 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9; /* Light background */
-    color: #333;
-    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
 }
 
 .container {
@@ -25,6 +13,7 @@ body {
     max-width: 450px;
     width: 100%;
     margin: auto;
+    margin-top: 100px;
 }
 
 h1 {
@@ -47,7 +36,7 @@ p {
     margin-bottom: 30px;
 }
 
-a {
+.container a {
     background: linear-gradient(45deg, #A16DF2, #56CCF2); 
     color: white;
     padding: 12px 30px;
@@ -58,7 +47,7 @@ a {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-a:hover {
+.container a:hover {
     background: linear-gradient(45deg, #9160DC, #4DBBD1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }

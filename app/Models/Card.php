@@ -8,8 +8,17 @@ class Card extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['wallet_id', 'card_number', 'expiry_date', 'cardholder_name'];
+    protected $primaryKey = 'card_id';
 
+    protected $fillable = [
+        'card_number',
+        'expiry_date',
+        'cardholder_name',
+        'cvv',
+        'wallet_id',
+        'preferred',
+        'card_type',
+    ];
     public function wallet()
     {
         return $this->belongsTo(Wallet::class);

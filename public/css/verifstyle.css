@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -32,6 +33,11 @@ body {
     margin-bottom: 20px;
 }
 
+.card-body p {
+    font-size: 14px;
+    margin-bottom: 10px; /* Reduced margin for better spacing */
+}
+
 button {
     background: linear-gradient(45deg, #A16DF2, #56CCF2); 
     color: white;
@@ -47,4 +53,13 @@ button {
 
 button:hover {
     background: linear-gradient(45deg, #9160DC, #4DBBD1); 
+}
+
+.alert {
+    padding: 10px;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }

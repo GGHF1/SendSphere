@@ -13,11 +13,16 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id('card_id');
-            $table->foreignId('wallet_id')->references('wallet_id')->on('wallets')->onDelete('cascade');
+            $table->unsignedBigInteger('wallet_id');
             $table->string('card_number');
             $table->date('expiry_date');
             $table->string('cardholder_name');
+            $table->string('cvv');
+            $table->boolean('preferred')->default(false);
+            $table->string('card_type');
             $table->timestamps();
+
+            $table->foreign('wallet_id')->references('wallet_id')->on('wallets')->onDelete('cascade');
         });
     }
 

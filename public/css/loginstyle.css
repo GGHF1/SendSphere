@@ -12,7 +12,7 @@ body {
     max-width: 100%;
     text-align: center;
     position: relative;
-    margin: 150px auto;
+    margin: 60px auto;
 }
 
 .logo{
@@ -73,7 +73,7 @@ input[type="password"]:focus {
 }
 
 button {
-    background: linear-gradient(45deg, #A16DF2, #56CCF2); /* Gradient like the welcome page */
+    background: linear-gradient(45deg, #A16DF2, #56CCF2); 
     color: white;
     padding: 12px 20px;
     border: none;
@@ -122,34 +122,6 @@ button:hover {
     background: white;
     color: rgb(57, 57, 255);
     border: 1px solid rgb(57, 57, 255);
-}
-
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #F7F9FA;
-    border-top: 1px solid #e1e1e1;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.footer p {
-    margin: 0;
-    color: #575757;
-    font-size: 12px;
-}
-
-.footer a {
-    color: #575757;
-    text-decoration: none;
-    margin-left: 5px;
-    font-size: 12px;
-}
-
-.footer a:hover {
-    text-decoration: underline;
 }
 
 @media (max-width: 500px) {

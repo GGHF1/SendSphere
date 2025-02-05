@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-    height: 80px;
+    height: 85px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,10 +47,12 @@ button:hover {
 
 .wallet-sidebar {
     width: 300px;
+    max-height: 300px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: auto;
 }
 
 .wallet-main {
@@ -156,4 +158,11 @@ h2 {
 
 .add-currency:hover, .currency-calculator:hover {
     text-decoration: underline;
+}
+
+.card-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }

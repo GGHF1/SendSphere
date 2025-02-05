@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your message is submitted</title>
-    <link rel="icon" href="{{ asset('images/icons.png') }}" >
+@extends('layouts.app')
+
+@section('title', 'Your message is submitted')
+
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/404style.css') }}">
-</head>
+@endsection
+
+@section('content')
 <body>
     <div class="container">
         <h1>Thank You!</h1>
@@ -19,3 +19,4 @@
     </div>
 </body>
 </html>
+@endsection

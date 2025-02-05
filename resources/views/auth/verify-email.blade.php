@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{ asset('images/icons.png') }}" >
     <link rel="stylesheet" href="{{ asset('css/verifstyle.css') }}">
-    <title>Document</title>
+    <title>Email Verification - SendSphere</title>
 </head>
 <body>
     <div class="container">
@@ -21,9 +21,9 @@
                             </div>
                         @endif
 
-                        <p style="font-size: 14px;">{{ __('Before proceeding, please check your email for a verification link.') }}</p>
-                        <p style="font-size: 14px;">{{ __('After verifying your email, you can close this page.') }}</p>
-                        <p style="font-size: 14px;">{{ __('If you did not receive the email') }},</p>
+                        <p>{{ __('Before proceeding, please check your email for a verification link.') }}</p>
+                        <p>{{ __('After verifying your email, you can close this page.') }}</p>
+                        <p>{{ __('If you did not receive the email') }},</p>
 
                         <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                             @csrf

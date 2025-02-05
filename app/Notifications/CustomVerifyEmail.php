@@ -42,8 +42,11 @@ class CustomVerifyEmail extends BaseVerifyEmail
         $verificationUrl = $this->verificationUrl($notifiable);
 
         return (new MailMessage)
-            ->view('emails.verify', ['url' => $verificationUrl])
-            ->subject('Verify Your Email Address');
+            ->view('emails.verify', [
+                'url' => $verificationUrl,
+                'fname' => $notifiable->fname,
+            ])
+            ->subject('Action Required: Verify Your Email for SendSphere');
     }
 
     /**
